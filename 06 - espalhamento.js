@@ -85,3 +85,8 @@ PROBLEMA:juntar dois ou mais vetores em um terceiro vetor
     for(let n of nums) resultado += n
     return resultado
   }
+
+  console.log('-' .repeat(80))
+  console.log(`Soma de 4 números: ${soma(1, 2, 3, 4)}`)
+  console.log(`Soma de 7 números: &{soma( 11, 22, 33, 44, 55, 66, 77)}`)
+  
