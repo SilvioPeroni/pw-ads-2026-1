@@ -64,8 +64,9 @@ console.log('DEPOIS:', {var1, var2})
  ~> Podem ser especificadas em qualquer ordem
  ~> Pode ser feita o desestruturação parcial
  */
-const {sexo, nome, email} = pessoa
+const {sexo, nome, xyz,  email} = pessoa
 
 console.log( 'Nome:', nome)
 console.log( 'sexo:', sexo)
 console.log('E-mail:', email)
+console.log('xyz:', xyz)
