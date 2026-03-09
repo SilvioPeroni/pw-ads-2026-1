@@ -7,7 +7,7 @@ const numeros = [12, 19, 3, -4, 13, -11, 15, -1, 0]
 const frutas = ['laranja', 'abacaxi', 'maça', 'uva', 'jabuticaba', 'maracuja']
 
 //Econtrando o primeiro número negativo no vetor de números
-console.log(: ',Primeiro número negativo:', numeros.find(n => n< 0))
+console.log( ',Primeiro número negativo:', numeros.find(n => n< 0))
 
 // Encontrando o primeiro número múltiplo de 5
 console.log('Primeiro multiplo de 5',
@@ -18,3 +18,14 @@ console.log('Primeiro multiplo de 5',
 console.log('Primeiro número maior que 20:', 
     numeros.find(i => i > 20)
 )
+
+// Encontrando a primeira fruta que começa com "m"
+console.log('Primeira fruta começando com "m":',
+   frutas.find(f => f.charAt(0) === 'm')
+)
+
+// Encontrando a primeira fruta que termina com "r"
+console.log('Primeira fruta terminando com "r":',
+    frutas.find(f => f.slice(-1) === 'r')
+)
+    
