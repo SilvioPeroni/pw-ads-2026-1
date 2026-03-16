@@ -28,8 +28,20 @@
 
     // Faz com que o novo parágrafo seja "adotado" pela div "root"
     root.appendChild(parag)
+
+
+    // Criando uma nova div e ajustando os seus atributos
+    const novaDiv = documentElement('div')
+    novaDiv.textContent = 'DIV criada com JavaScript.'
+    novaDiv.style.border = '3px dotted green'
+    novaDiv.style.backgroound = 'limegreen'
+    novaDiv.style.padding = '10px'
+    novaDiv.style.marginTop = '50px'
+    novaDiv.style.textAlign = 'center'
+    novaDiv.id = 'div-verde'
+    
+    // FAzendo com que a div "root" "adote" novaDiv como filha
+    root.appendChild(novaDiv)
     </script>
 </body>
 </html>
-
-
