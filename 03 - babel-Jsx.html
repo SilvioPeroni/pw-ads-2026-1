@@ -39,12 +39,39 @@
     // e transpilad para JS puro
     const div2 = <div id="div2" className="formata">DIV criada com JSX</div>
     
+    // Para exibir o conteúdo de variáveis dentro do JSX, usamos {}.
+    // Isso se chama INTERPOLAÇÃO DE VARIÁVEIS
+    const nomeClasse = 'formata'
+    const id ='div3'
+    const conteudo = 'DIV criaa com JSX+Babel e interpolação de variáveis'
+
+    const div3 = <div id={id} className={nomeClasse}>{conteudo}</div>
+    // Criando um objeto de props (em vez de variáveis avuldas, como fizemos
+    // na div3
+    
+const propsDiv4 = {
+    id: 'div4',
+    className: 'formata',
+    children: 'DIV  criada com JSX+ babel e espalhamento de props'
+}
+
+// Usando espalhamento para informar os props
+// Em JSX, quando não temos a tag de fechamento, é OBRIGATÓRIO terminar o 
+// elemento usando />
+const div4 = <div {...propsDiv4} />
 
     // container
-    const container = React.createElement(
-        'div',
-        { id: 'contaainer', children: [div1, div2]}
-    )
+    // const container = React.createElement(
+    //     'div',
+    //     { id: 'contaainer', children: [div1, div2, div3, div4]}
+    // )
+
+   // Container em JSX
+   const container = 
+   <div id="container"> 
+    {div1} {div2} {div3} {div4} 
+    </div>
+
     // Tornando a DIV root nosso ponto de inserção
     const root = ReactDOM.createRoot(document.getElementById('root'))
 
