@@ -19,7 +19,7 @@ console.log('[TRADI] o quadrado de 7 é', quadrado(7))
  console.log('[ARROW] o quadrado de 7 é', quadradoA(7))
 
  /* Função tradicional com mais de um parâmetro  e apenas 
-   uma llinha com return */
+   uma linha com return */
    function  calc(a, b, c) {
       return a * b + c
    }
