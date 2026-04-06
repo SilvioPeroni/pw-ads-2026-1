@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Avaliação React - Silvio ADS</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body { font-family: sans-serif; padding: 30px; background-color: #f8f9fa; }
+        
+        /* 1ª Classe: Crimson */
+        .texto-crimson { color: Crimson; font-weight: bold; font-size: 24px; }
+
+        /* 2ª Classe: Teal */
+        .texto-teal { color: Teal; font-size: 18px; }
+
+        /* 3ª Classe: SaddleBrown */
+        .texto-saddlebrown { color: SaddleBrown; font-size: 16px; }
+
+        .container { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // ITEM: Função de componente React em formato Arrow Function com Props
+        const ExibirProduto = (props) => {
+            
+            // ITEM: Retorno em Fragment (<React.Fragment>)
+            return (
+                <React.Fragment>
+                    <div className="container">
+                        {/* a) h1 estilizado com a 1ª classe exibindo o produto */}
+                        <h1 className="texto-crimson">
+                            {props.produto}
+                        </h1>
+
+                        {/* b) elemento p estilizado com a 2ª classe, R$ e preço com toFixed(2) */}
+                        <p className="texto-teal">
+                            R$ {props.preço.toFixed(2)}
+                        </p>
+
+                        {/* c) elemento p estilizado com a 3ª classe e texto fixo de estoque */}
+                        <p className="texto-saddlebrown">
+                            Quantidade em estoque: {props.estoque}
+                        </p>
+                    </div>
+                </React.Fragment>
+            );
+        };
+
+        // Componente Principal para renderizar a lista
+        const App = () => {
+            return (
+                <div>
+                    <ExibirProduto produto="Sensor de Umidade Solo" preço={45.9} estoque={12} />
+                    <ExibirProduto produto="Drone de Mapeamento" preço={2500.00} estoque={2} />
+                    <ExibirProduto produto="Placa Arduino Uno" preço={89.00} estoque={5} />
+                </div>
+            );
+        };
+
+        // ITEM: DOM e Renderização
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+
+    </script>
+</body>
+</html>
