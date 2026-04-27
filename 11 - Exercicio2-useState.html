@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        const CalculoElipseState = () => {
+            const [raioMaior, setRaioMaior] = useState('');
+            const [raioMenor, setRaioMenor] = useState('');
+
+            const rMaiorNum = Number(raioMaior);
+            const rMenorNum = Number(raioMenor);
+            const area = rMaiorNum * rMenorNum * Math.PI;
+
+            return (
+                
+                <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+                    <h1>Cálculo da área de uma elipse (useState)</h1>
+                    <form>
+                        <div>
+                            <label>
+                                <span>Medida do raio maior:</span><br />
+                                <input 
+                                    type="number" 
+                                    value={raioMaior}
+                                    onChange={(e) => setRaioMaior(e.target.value)}
+                                />
+                            </label>
+                        </div>
+                        <br />
+                        <div>
+                            <label>
+                                <span>Medida do raio menor:</span><br />
+                                {/* 2. CORRIGIDO: Removida a tag duplicada daqui */}
+                                <input 
+                                    type="number" 
+                                    value={raioMenor}
+                                    onChange={(e) => setRaioMenor(e.target.value)}
+                                />
+                            </label>
+                        </div>
+                        <br />
+
+                        <div style={{ fontWeight: 'bold', marginTop: '10px' }}>
+                            {raioMaior && raioMenor ? (
+                                `Área: ${area.toLocaleString('pt-br', {
+                                    minimumFractionDigits: 4,
+                                    maximumFractionDigits: 4
+                                })}`
+                            ) : (
+                                "Digite os valores para calcular"
+                            )}
+                        </div>
+                    </form>
+                </div>
+            );
+        };
+
+        /*  O nome aqui deve ser igual ao da constante. */
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<CalculoElipseState />);
+    </script>
+</body>
+</html>

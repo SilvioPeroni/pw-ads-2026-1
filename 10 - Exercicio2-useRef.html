@@ -1,0 +1,84 @@
+import React, { useRef } from 'react';
+
+const CalculoElipse = () => {
+  const raioMaiorRef = useRef(null);
+  const raioMenorRef = useRef(null);
+  const resultadoRef = useRef(null);
+
+  const calcularArea = () => {
+    // Pegamos o valor como string primeiro para tratar melhor
+    const valorMaior = raioMaiorRef.current?.value.trim() || '';
+    const valorMenor = raioMenorRef.current?.value.trim() || '';
+
+    const rMaior = parseFloat(valorMaior);
+    const rMenor = parseFloat(valorMenor);
+
+    // Verificação mais segura
+    if (!isNaN(rMaior) && !isNaN(rMenor) && rMaior > 0 && rMenor > 0) {
+      const area = rMaior * rMenor * Math.PI;
+
+      resultadoRef.current.textContent = 
+        'Área: ' + area.toLocaleString('pt-BR', {
+          minimumFractionDigits: 4,
+          maximumFractionDigits: 4
+        });
+    } else {
+      // Limpa o resultado quando os valores não são válidos
+      if (resultadoRef.current) {
+        resultadoRef.current.textContent = '';
+      }
+    }
+  };
+
+  return (
+    <div style={{ padding: '20px', fontFamily: 'sans-serif', maxWidth: '500px' }>
+      <h1>Cálculo da área de uma elipse</h1>
+      
+      <form>
+        <div>
+          <label>
+            <span>Medida do raio maior:</span><br />
+            <input 
+              type="number" 
+              step="any"           
+              ref={raioMaiorRef} 
+              onInput={calcularArea} 
+              placeholder="Ex: 10"
+            />
+          </label>
+        </div>
+        
+        <br />
+
+        <div>
+          <label>
+            <span>Medida do raio menor:</span><br />
+            <input 
+              type="number" 
+              step="any"
+              ref={raioMenorRef} 
+              onInput={calcularArea} 
+              placeholder="Ex: 6"
+            />
+          </label>
+        </div>
+
+        <br />
+
+        {/* Div do resultado */}
+        <div 
+          ref={resultadoRef} 
+          style={{ 
+            fontWeight: 'bold', 
+            marginTop: '20px',
+            fontSize: '1.3em',
+            color: '#0066cc',
+            minHeight: '30px'
+          }}
+        />
+      </form>
+    </div>
+  );
+};
+
+export default CalculoElipse;
